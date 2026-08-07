@@ -1,0 +1,107 @@
+/* Verasity Extension Styles */
+
+/* Inject Button */
+.verasity-check-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #18181b;
+  color: #f8fafc;
+  border: 1px solid #27272a;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 8px;
+  z-index: 50;
+  transition: all 0.2s ease;
+  font-family: -apple-system, sans-serif;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.verasity-check-btn:hover {
+  background-color: #27272a;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+.verasity-check-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+  animation: pulse 2s infinite;
+}
+
+/* Magic UX Animation for Scanning */
+@keyframes verasity-border-glow {
+  0% { box-shadow: 0 0 0 2px #3b82f6, 0 0 20px rgba(59, 130, 246, 0.4); }
+  33% { box-shadow: 0 0 0 2px #8b5cf6, 0 0 20px rgba(139, 92, 246, 0.4); }
+  66% { box-shadow: 0 0 0 2px #10b981, 0 0 20px rgba(16, 185, 129, 0.4); }
+  100% { box-shadow: 0 0 0 2px #3b82f6, 0 0 20px rgba(59, 130, 246, 0.4); }
+}
+
+.verasity-scanning-active {
+  position: relative;
+  animation: verasity-border-glow 2s linear infinite;
+  border-radius: 8px; /* Assuming post has rounded corners */
+}
+
+/* Results Panel (Frosted Glass) */
+.verasity-results-panel {
+  margin-top: 12px;
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  color: #f8fafc;
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.v-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.v-summary {
+  color: #d4d4d8;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.v-sources {
+  font-size: 12px;
+}
+
+.v-sources ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 4px;
+}
+
+.v-sources a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+.v-sources a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
