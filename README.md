@@ -130,3 +130,4 @@ Run these from the repository root:
 ---
 
 If you want, I can commit a minimal `.env.example` (without secrets) that documents the environment variables the project expects.
+"# miniproject" 
