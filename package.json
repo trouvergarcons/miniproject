@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm:backend:run\" \"npm:frontend:dev\"",
+    "predev": "npx kill-port 3000 || true",
+    "prefrontend:dev": "npx kill-port 3000 || true",
+    "dev": "concurrently --kill-others-on-fail \"npm:backend:run\" \"npm:frontend:dev\"",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend_django && python -m pip install -r requirements.txt",
     "install:backend:dev": "cd backend_django && python -m pip install -r requirements-dev.txt",
@@ -14,6 +16,7 @@
     "start:all": "npm run backend:run"
   },
   "devDependencies": {
-    "concurrently": "^10.0.4"
+    "concurrently": "^10.0.4",
+    "kill-port": "^2.0.1"
   }
 }

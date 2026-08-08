@@ -1,0 +1,12 @@
+# Ignore env files with secrets
+/.env
+/.env.local
+/frontend/.env
+/frontend/.env.local
+/backend_django/.env
+# Ignore user-level Python scripts folder warnings (optional)
+/node_modules
+/npm-debug.log
+/package-lock.json
+/pnpm-lock.yaml
+/.DS_Store
