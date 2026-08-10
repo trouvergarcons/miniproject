@@ -1,0 +1,27 @@
+name: CI Auto Rerun on Failure
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  actions: write
+
+jobs:
+  rerun:
+    # Only run when the workflow finished with 'failure' and hasn't already been retried
+    if: ${{ github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.run_attempt < 2 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rerun failed workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const runId = context.payload.workflow_run.id;
+            console.log(`Attempting to re-run workflow run ${runId}`);
+            await github.rest.actions.reRunWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: runId,
+            });
