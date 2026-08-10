@@ -14,6 +14,15 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+      - name: Debug Python environment
+        run: |
+          echo "--- Python info ---"
+          python --version
+          which python || echo "which not available"
+          python -c "import sys; print('executable:', sys.executable)"
+          echo "--- pip info ---"
+          pip --version
+          python -m pip list --format=columns
       - name: Install backend dependencies
         run: |
           python -m pip install --upgrade pip
@@ -22,7 +31,7 @@ jobs:
       - name: Run backend tests
         run: |
           cd backend_django
-          pytest -q
+          pytest -vv
 
   frontend:
     runs-on: ubuntu-latest
