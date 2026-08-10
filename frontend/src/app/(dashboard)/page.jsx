@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ConfidenceRing, VerdictBadge } from '@/components/Verdict';
+import { VerdictBadge } from '@/components/Verdict';
 import { StatsBar, StatItem } from '@/components/StatsBar';
 import { motion } from 'framer-motion';
 import { formatDistanceToNow } from 'date-fns';
@@ -19,14 +19,14 @@ import {
   RefreshCw
 } from 'lucide-react';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 
 export default function RumoursFeed() {
 
-  const [verdictFilter, setVerdictFilter] = useState('all');
-  const [sortBy, setSortBy] = useState('recent');
+  const [verdictFilter] = useState('all');
+  const [sortBy] = useState('recent');
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const { data: rumours = [], isLoading, error, refetch } = useQuery({

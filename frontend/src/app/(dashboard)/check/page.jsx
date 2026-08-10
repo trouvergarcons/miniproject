@@ -57,7 +57,7 @@ export default function QuickCheckPage() {
   });
 
   const feedbackMutation = useMutation({
-    mutationFn: async ({ isCorrect }) => {
+    mutationFn: async (vars) => {
       return { success: true };
     },
 

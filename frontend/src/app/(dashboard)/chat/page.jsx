@@ -6,9 +6,8 @@ import { useMutation } from "@tanstack/react-query"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
-import { Send, Bot, User, ExternalLink, Globe, Paperclip, X } from "lucide-react"
+import { Send, Bot, User, ExternalLink, Paperclip, X } from "lucide-react"
 
 import { VerdictBadge } from "@/components/Verdict"
 
@@ -312,7 +311,7 @@ export default function ChatCheckPage() {
 
           {selectedImage && (
             <div className="mb-3 relative inline-block">
-              <img src={selectedImage} className="h-20 rounded-md" />
+              <img src={selectedImage} alt="preview" className="h-20 rounded-md" />
 
               <button
                 onClick={removeImage}
