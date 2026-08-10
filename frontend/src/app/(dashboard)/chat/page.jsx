@@ -242,6 +242,7 @@ export default function ChatCheckPage() {
                       {msg.image && (
                         <img
                           src={msg.image}
+                          alt="uploaded"
                           className="max-w-[200px] rounded-lg"
                         />
                       )}

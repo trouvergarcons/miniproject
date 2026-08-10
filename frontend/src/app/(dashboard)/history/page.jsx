@@ -122,7 +122,7 @@ export default function HistoryPage() {
 
                         {/* ✅ FIXED TITLE */}
                         <CardTitle className="text-sm leading-snug line-clamp-2 break-all overflow-hidden text-foreground/90">
-                          "{item.content}"
+                          {item.content}
                         </CardTitle>
 
                       </div>
